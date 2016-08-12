@@ -1,0 +1,27 @@
+.skipper {
+  background: #ffc;
+  color: #bf1722;
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  left: 0;
+  line-height: 60px;
+  padding: 0 20px;
+  position: absolute;
+  top: -60px;
+  transition: top 200ms;
+}
+
+.skipper:focus,
+.skipper:active {
+  top: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 50%;
+}
+
+#content.-nofocus {
+  outline: none;
+}

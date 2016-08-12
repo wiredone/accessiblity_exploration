@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/styles/angular-toastr.css">
     <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/jquery.a11yfy.core.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <!--STYLES END-->
 
     <!--Added this so the client has access to the csrf tag and it's grabbed first service side on every page -->
@@ -23,8 +25,11 @@
   <body ng-app="HomepageModule" ng-controller="HomepageController" ng-cloak>
 
     <div class="container-fluid">
+
       <!-- Creates the navbar -->
-        <nav class="navbar navbar-default navbar-inverse">
+       <nav class="navbar navbar-default navbar-inverse">
+  <a href="#content" class="skipper" data-js="skipper">Skip to main content</a>
+
           <!-- This creates the mechanism for collapse button -->
           <button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
             <!-- This controls the number of lines in the image when the nav collapse -->
@@ -34,7 +39,11 @@
           </button>
 
           <!-- This is the brand on the left-hand side. -->
-          <a class="navbar-brand" href="/#"> activityOverlord</a>
+          <a class="navbar-brand" href="/#"> accessibility testing</a>
+          <a class="navbar-brand" href="/signup"> form1</a>
+          <a class="navbar-brand" href="/signup2"> form2</a>
+          <a class="navbar-brand" href="/signup3"> form3</a>
+          <a class="navbar-brand" href="/signup3"> some navigation cruft to skip</a>
           <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
           <form ng-submit="submitLoginForm()" class="navbar-form navbar-right">
 
@@ -57,9 +66,40 @@
 
     <div class=" col-md-8 col-md-offset-2">
       <div class="jumbotron">
-        <h1>activityOverlordv2.0</h1>
-        <h2>...tracking app activity better than the NSA since 1899.</h2>
-        <a href="/signup" class="btn btn-lg btn-success">Sign up now!</a>
+        <h1>Error Handling in forms - form1</h1>
+        <h2> This exploration has some validation, but it is inaccesible.  </h2>
+        <a href="/signup" class="btn btn-lg btn-success">(Fill in) Sign up (form1) now!</a>
+      </div>
+    </div>
+
+    <div class=" col-md-8 col-md-offset-2">
+      <div class="jumbotron">
+        <h1>Error Handling in forms - form2 </h1>
+        <h2>This example explores toastr.  It has some accesibility, but does not meet the criteria</h2>
+        <p> it does not have a single box with each error</p>
+        <p>it does not deliver a full page refresh</p>
+        <p> putting links into toastr alerts seems non-trivial/beyond its design</p>
+        <a href="/signup2" class="btn btn-lg btn-success">(Fill in) Sign up (form2) now!</a>
+      </div>
+    </div>
+
+    <div class=" col-md-8 col-md-offset-2">
+      <div class="jumbotron">
+        <h1>Error Handling in forms - form3 </h1>
+        <h2>Built using Sails, Angular.js and ARIA</h2>
+
+        <a href="/signup3" class="btn btn-lg btn-success">(Fill in) Sign up (form3) now!</a>
+      </div>
+    </div>
+
+
+    <div class=" col-md-8 col-md-offset-2"  id="content" class="-nofocus" tabindex="-1">
+      <div class="jumbotron">
+        <h1> This is the main content. </h1>
+        <h2> The Story So Far... </h2>
+        <p>Obi-Wan Kenobi...Obi-Wan? Now thats a name I haven't heard in a long time...a long time. I think my uncle knew him. He said he was dead. Oh, he's not dead, not...not yet. You know him! Well of course, of course I know him. He's me! I haven't gone by the name Obi-Wan since oh, before you were born. Then the droid does belong to you. Don't seem to remember ever owning a droid. Very interesting... I think we better get indoors. The Sandpeople are easily startled but they will soon be back and in greater numbers. Threepio! Where am I? I must have taken a bad step... Can you stand? We've got to get out of here before the Sandpeople return. I don't think I can make it. You go on, Master Luke. There's no sense in you risking yourself on my account. I'm done for. No, you're not. What kind of talk is that? Quickly, son...they're on the move.</p><p>There she is. See-Threepio, do you copy? For the moment. Uh, we're in the main hangar across from the ship. We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship! Where are you going? Come back! He certainly has courage. What good will it do us if he gets himself killed? Come on! I think we took a wrong turn. There's no lock! That oughta hold it for a while. Quick, we've got to get across. Find the control that extends the bridge. Oh, I think I just blasted it. They're coming through! Here, hold this. Here they come! For luck!</p><p>Stand by, Chewie, here we go. Cut in the sublight engines. What the...? Aw, we've come out of hyperspace into a meteor shower. Some kind of asteroid collision. It's not on any of the charts. What's going on? Our position is correct, except...no, Alderaan! What do you mean? Where is it? Thats what I'm trying to tell you, kid. It ain't there. It's been totally blown away. What? How? Destroyed...by the Empire!</p><p>Have you been in many battles? Several, I think. Actually, there's not much to tell. I'm not much more than an interpreter, and not very good at telling stories. Well, not at making them interesting, anyways. Well, my little friend, you've got something jammed in here real good. Were you on a cruiser or... </p><p>Run, Luke! Run!</p>
+
+
       </div>
     </div>
 
@@ -68,8 +108,8 @@
         <hr>
         <footer class="footer pull-right">
             <div>
-                <a href="http://sailsjs.com/">sailsjs.org</a>
-                <div>tutorial by irl nathan, with a bunch of help from cody, gabe, heather, mike, racheal, scott and zoli</div>
+                <a href="blog.wired.one">mle blog</a>
+                <div>Matthew Edmondson mle@wired.one</div>
             </div>
         </footer>
     </div>
@@ -80,12 +120,16 @@
     <script src="/js/dependencies/angular.1.3.js"></script>
     <script src="/js/dependencies/angular-toastr.js"></script>
     <script src="/js/dependencies/compareTo.module.js"></script>
+    <script src="/js/dependencies/jquery.a11yfy.core.js"></script>
+    <script src="/js/dependencies/jquery.min.js"></script>
+    <script src="/js/dependencies/jquery.validate.js"></script>
     <script src="/js/public/signup/SignupModule.js"></script>
     <script src="/js/private/dashboard/DashboardModule.js"></script>
     <script src="/js/public/homepage/HomepageModule.js"></script>
     <script src="/js/private/dashboard/DashboardController.js"></script>
     <script src="/js/public/homepage/HomepageController.js"></script>
     <script src="/js/public/signup/SignupController.js"></script>
+    <script src="/js/skipper.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

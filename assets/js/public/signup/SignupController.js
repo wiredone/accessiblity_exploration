@@ -60,12 +60,14 @@ angular.module('SignupModule').controller('SignupController', ['$scope', '$http'
         //
         toastr.error('Invalid email/password combination.', 'Error', {
           closeButton: true
+
         });
         return;
       }
 
 				toastr.error('An unexpected error occurred, please try again.', 'Error', {
 					closeButton: true
+				
 				});
 				return;
 
